@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func round32(f32 float32, decI int) (float32, error) {
+func Round32(f32 float32, decI int) (float32, error) {
 	var err error = nil
 	if decI <= 0 {
 		err = errors.New("decimal value lower or equal to 0. provide an int value greater than 0")
@@ -18,7 +18,7 @@ func round32(f32 float32, decI int) (float32, error) {
 	return float32(math.Round(f64*decF) / decF), err
 }
 
-func round64(f64 float64, decI int) (float64, error) {
+func Round64(f64 float64, decI int) (float64, error) {
 	var err error = nil
 	if decI <= 0 {
 		err = errors.New("decimal value lower or equal to 0. provide an int value greater than 0")
@@ -29,4 +29,3 @@ func round64(f64 float64, decI int) (float64, error) {
 
 	return (math.Round(f64) * decF) / decF, err
 }
-
