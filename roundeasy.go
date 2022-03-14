@@ -5,27 +5,15 @@ import (
 	"math"
 )
 
-func Round32(f32 float32, decI int) (float32, error) {
+// Returns a rounded float64 to a specified number of decimal places
+func Round(f float64, i int) (float64, error) {
 	var err error = nil
-	if decI <= 0 {
+	if i <= 0 {
 		err = errors.New("decimal value lower or equal to 0. provide an int value greater than 0")
 		return 0, err
 	}
 
-	decF := float64(decI) * 10
-	f64 := float64(f32)
+	rf := float64(i) * 10
 
-	return float32(math.Round(f64*decF) / decF), err
-}
-
-func Round64(f64 float64, decI int) (float64, error) {
-	var err error = nil
-	if decI <= 0 {
-		err = errors.New("decimal value lower or equal to 0. provide an int value greater than 0")
-		return 0, err
-	}
-
-	decF := float64(decI) * 10
-
-	return (math.Round(f64) * decF) / decF, err
+	return (math.Round(f) * rf) / rf, err
 }
