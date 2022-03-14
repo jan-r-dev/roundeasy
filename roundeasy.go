@@ -15,5 +15,5 @@ func Round(f float64, i int) (float64, error) {
 
 	rf := float64(i) * 10
 
-	return (math.Round(f) * rf) / rf, err
+	return math.Round(f*rf) / rf, err
 }
